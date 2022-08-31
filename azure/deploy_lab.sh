@@ -23,6 +23,16 @@ if [[ $? -ne 0 ]];then
 fi
 echo Your username is $username and your password is $password
 
+for (( c=1; c<=$number; c++ ))
+do
+   if [[ $c -eq 1 ]]
+   then
+        compute="student$c"
+   else
+        compute="$compute,student$c"
+   fi
+done
+
 virtualenv ansible
 
 source ansible/bin/activate
@@ -39,4 +49,4 @@ ansible-galaxy install --force -r requirements.yml
 
 curl -o 00_azure_class_setup.yml https://raw.githubusercontent.com/jesperberth/gitopsclass_setup/main/azure/00_azure_class_setup.yml
 
-ansible-playbook -e "adminUser=$username adminPassword=$password compute=student01,student02" 00_azure_class_setup.yml
+ansible-playbook -e "{'adminUser': $username, 'adminPassword': $password, 'compute': [$compute]}" 00_azure_class_setup.yml
