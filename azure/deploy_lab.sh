@@ -30,10 +30,10 @@ ansible-galaxy collection install azure.azcollection
 
 pip install -r ~/.ansible/collections/ansible_collections/azure/azcollection/requirements-azure.txt
 
-curl -o requirements.yml https://raw.githubusercontent.com/jesperberth/automationclass_setup/main/azure/requirements.yml
+curl -o requirements.yml https://raw.githubusercontent.com/jesperberth/gitopsclass_setup/main/azure/requirements.yml
 
 ansible-galaxy install -r requirements.yml
 
-curl -o 00_azure_class_setup.yml https://raw.githubusercontent.com/jesperberth/automationclass_setup/main/azure/00_azure_class_setup.yml
+curl -o 00_azure_class_setup.yml https://raw.githubusercontent.com/jesperberth/gitopsclass_setup/main/azure/00_azure_class_setup.yml
 
 ansible-playbook -e "adminUser=$username adminPassword=$password" 00_azure_class_setup.yml
