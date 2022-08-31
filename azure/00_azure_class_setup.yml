@@ -55,7 +55,7 @@
             public_ip_address_name: "{{ item }}_public_ip"
             primary: true
       loop:
-        - student
+        compute
       async: 1000
       poll: 0
       register: create_nic
@@ -87,7 +87,7 @@
         vm_size: "Standard_D4s_v3"
         network_interfaces: "{{ item }}_nic01"
       loop:
-        - student
+        compute
       async: 1000
       poll: 0
       register: create_vm
