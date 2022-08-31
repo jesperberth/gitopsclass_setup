@@ -3,6 +3,9 @@ echo "##################"
 echo "# Deploy Lab kit #"
 echo "##################"
 
+echo "How many Student PCs do you want to deploy"
+read number
+
 echo "Enter your username for the lab:"
 read username
 
@@ -36,4 +39,4 @@ ansible-galaxy install -r requirements.yml
 
 curl -o 00_azure_class_setup.yml https://raw.githubusercontent.com/jesperberth/gitopsclass_setup/main/azure/00_azure_class_setup.yml
 
-ansible-playbook -e "adminUser=$username adminPassword=$password" 00_azure_class_setup.yml
+ansible-playbook -e "adminUser=$username adminPassword=$password compute=student01,student02" 00_azure_class_setup.yml
