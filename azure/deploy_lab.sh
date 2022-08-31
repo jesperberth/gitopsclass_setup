@@ -35,7 +35,7 @@ pip install -r ~/.ansible/collections/ansible_collections/azure/azcollection/req
 
 curl -o requirements.yml https://raw.githubusercontent.com/jesperberth/gitopsclass_setup/main/azure/requirements.yml
 
-ansible-galaxy install -r requirements.yml
+ansible-galaxy install --force -r requirements.yml
 
 curl -o 00_azure_class_setup.yml https://raw.githubusercontent.com/jesperberth/gitopsclass_setup/main/azure/00_azure_class_setup.yml
 

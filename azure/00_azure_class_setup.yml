@@ -12,7 +12,6 @@
       include_role:
         name: jesperberth.az_resourcegroup
       vars:
-        resourcegroup: "{{ resourcegroup }}"
         location: "{{ location }}"
 
     - name: Azure Virtual Network
