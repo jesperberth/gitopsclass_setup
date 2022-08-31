@@ -11,8 +11,6 @@
     - name: Azure Resource Group
       include_role:
         name: jesperberth.az_resourcegroup
-      vars:
-        location: "{{ location }}"
 
     - name: Azure Virtual Network
       ansible.builtin.include_role:
@@ -25,7 +23,6 @@
       ansible.builtin.include_role:
         name: jesperberth.az_securitygroup
       vars:
-        resourcegroup: "{{ resourcegroup }}"
         networksecuritygroup_name: "{{ item.nsgname }}"
         rulename: "{{ item.name }}"
         ruleprotocol: "{{ item.proto }}"
